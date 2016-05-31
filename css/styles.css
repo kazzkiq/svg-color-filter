@@ -105,11 +105,8 @@ a {
 }
 
 .playground .pg-picture .svg-filter {
-    -webkit-filter: url(#filterSample);
-    -moz-filter: url(#filterSample);
-    -ms-filter: url(#filterSample);
-    filter: url(#filterSample);
-    
+    /* filter is at index.html */
+   
     position: absolute;
     top: 50%;
     left: 50%;
