@@ -24,7 +24,6 @@
         .playground .pg-picture .svg-filter, .svg-filter {
             filter: url(#filter-sample);
             -webkit-filter: url(#filter-sample);
-            
         }
     </style>
 </head>
@@ -92,7 +91,10 @@
         <filter id="filter-sample">
             <feColorMatrix
             type="matrix"
-            values="1 -0.2 0 0 0 0 1 0 -0.1 0 0 1.2 1 0.1 0 0 0 1.7 1 0"/>
+            values="1 0 0 0 0
+                    0 1 0 0 0
+                    0 0 1 0 0
+                    0 0 0 1 0 "/>
         </filter>
     </svg>
     <script>
