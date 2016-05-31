@@ -187,7 +187,7 @@ a {
 }
 
 .playground .pg-svg pre {
-    padding: 2rem;
+    padding: 2rem 0.5rem;
     font-size: 1rem;
     line-height: 1.7rem;
 }
@@ -244,6 +244,10 @@ a {
     
     .playground > * {
         min-height: 420px;
+    }
+    
+    .playground .pg-svg pre {
+        overflow: auto;
     }
 }
 
