@@ -56,6 +56,8 @@ SVGFiddlerComp.prototype.handleColorMatrix = function(e) {
 SVGFiddlerComp.prototype.removeSelected = function() {
     var colorMatrix = document.querySelectorAll('[data-bind="svg-code"] b');
     
+    colorMatrix = Array.prototype.slice.call(colorMatrix);
+    
     colorMatrix.forEach(function(elem) {
         elem.classList.remove('selected');
     }, this);
@@ -84,6 +86,8 @@ SVGFiddlerComp.prototype.updateSVG = function(value) {
     var colorMatrix = document.querySelectorAll('[data-bind="svg-code"] b');
     var values = [];
     
+    colorMatrix = Array.prototype.slice.call(colorMatrix);
+    
     colorMatrix.forEach(function(e) {
         values.push(e.innerText);
     }, this);
@@ -98,6 +102,8 @@ SVGFiddlerComp.prototype.updateSVG = function(value) {
 SVGFiddlerComp.prototype.setValue = function(value) {
     var values = value.split(' ');
     var colorMatrix = document.querySelectorAll('[data-bind="svg-code"] b');
+    
+    colorMatrix = Array.prototype.slice.call(colorMatrix);
     
     colorMatrix.forEach(function(e, i) {
         e.innerHTML = values[i];
