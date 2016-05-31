@@ -10,4 +10,4 @@ If you never heard of **feColorMatrix** before, you should start with **[this aw
 This project is aimed to be a playground only. If you need production-ready libraries to give your image filters, you should try [CSSgram](https://github.com/una/CSSgram), [glfx.js](https://github.com/evanw/glfx.js), [canvasfilters](https://github.com/kig/canvasfilters) or any other lib for that matter.
 
 **Compatibility issues:**
-SVG filters are a relatively new feature, thus older browsers (IE < 10) will probably have trouble loading this playground.
+SVG filters are a relatively "new" feature, thus older browsers (IE < 10) will ~~not~~ probably have trouble loading the effects.
