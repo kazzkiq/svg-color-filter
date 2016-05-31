@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#50d8a3">
+    
+    <link rel="icon" sizes="512x512" href="icon-512.png">
+    <link rel="icon" sizes="192x192" href="icon-192.png">
+    <link rel="icon" sizes="32x32" href="icon-32.png">
+    <link rel="icon" sizes="16-16" href="icon-16.png">
+
+    <title>SVG Color Filter Playground</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script async src="js/components.js"></script>
+    <script async src="js/main.js"></script>
+</head>
+<body>
+    <h1>SVG Color Filter Playground</h1>
+    <h2>This is a tool to help understand how <b>feColorMatrix</b> works.<br>Drag an image in the left, change the values on the right.</h2>
+    
+    <hr>
+    <p class="filter-samples">
+        Filter samples: <br>
+        <span class="original" onclick="SVGFiddler.setValue(window.sampleFilters.original)">No Filter</span>
+        <span onclick="SVGFiddler.setValue(window.sampleFilters.purple)">Purple</span>
+        <span onclick="SVGFiddler.setValue(window.sampleFilters.yellow)">Yellow</span>
+        <span onclick="SVGFiddler.setValue(window.sampleFilters.cyan)">Cyan</span>
+        <span onclick="SVGFiddler.setValue(window.sampleFilters.blackWhite)">Black & White</span>
+        <span onclick="SVGFiddler.setValue(window.sampleFilters.oldTimes)">Old Times</span>
+        <span onclick="SVGFiddler.setValue(window.sampleFilters.coldLife)">Cold Life</span>
+        <span onclick="SVGFiddler.setValue(window.sampleFilters.sepium)">Sepium</span>
+        <span onclick="SVGFiddler.setValue(window.sampleFilters.milk)">Milk</span>
+    </p>
+    
+    <div class="playground">
+        <div class="pg-picture">
+            <img src="" data-bind="image-preview" class="svg-filter">
+            <div class="pg-picture-text" data-bind="upload-button">
+                Click here <br> to add an image.
+                <input type="file" name="" id="" onchange="ImagePreviewer.updateImage(this)">
+            </div>
+        </div>
+        <div class="pg-svg" data-bind="svg-code">
+            <div class="svg-controls">
+                <input type="range" data-bind="svg-input-range" min="-3000" max="3000" step="100" value="0" step="0" onchange="SVGFiddler.updateMatrix(this)">
+            </div>
+            <pre>
+                <code class=" language-markup">
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>linear<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>feColorMatrix</span>
+      <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>matrix<span class="token punctuation">"</span></span>
+      <span class="token attr-name">values</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><b>1</b> <b>0</b> <b>0</b> <b>0</b> <b>0</b>
+              <b>0</b> <b>1</b> <b>0</b> <b>0</b> <b>0</b>
+              <b>0</b> <b>0</b> <b>1</b> <b>0</b> <b>0</b>
+              <b>0</b> <b>0</b> <b>0</b> <b>1</b> <b>0</b> <span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>feColorMatrix</span><span class="token punctuation">&gt;</span></span>
+
+</code>
+            </pre>
+        </div>
+    </div>
+    
+    <p>
+        You can read more about <b>feColorMatrix</b> and <b>SVG Color Filters</b> here:
+        <br>
+        <a href="http://alistapart.com/article/finessing-fecolormatrix">http://alistapart.com/article/finessing-fecolormatrix</a>
+    </p>
+    
+    <hr>
+    
+    <footer>
+        <p>
+            Made by <a href="http://github.com/kazzkiq">Claudio Holanda</a> (<a href="http://twitter.com/kazzkiq">@kazzkiq</a>).
+        </p>
+    </footer>
+    <svg data-bind="real-svg" xmlns="http://www.w3.org/2000/svg">
+        <filter id="filterSample">
+            <feColorMatrix
+            type="matrix"
+            values="1 0 0 0 0
+                    0 1 0 0 0
+                    0 0 1 0 0
+                    0 0 0 1 0 "/>
+        </filter>
+    </svg>
+</body>
+</html>

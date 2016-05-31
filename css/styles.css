@@ -1,0 +1,362 @@
+@import url('range.css');
+
+html {
+    font-size: 15px;
+}
+
+body {
+    margin: 0;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+hr {
+    width: 50vw;
+    height: 1px;
+    border: none;
+    background: #f1f1f1;
+}
+
+h1 {
+    font-weight: 300;
+    margin: 2rem 0 2.5rem;
+    text-align: center;
+    font-size: 3rem;
+    color: #50d8a3;
+}
+
+h2 {
+    font-weight: 300;
+    margin: 3rem 0 4rem;
+    text-align: center;
+    font-size: 1.4rem;
+    color: #cacaca;
+}
+
+h2 b {
+    color: #50d8a3;
+}
+
+p {
+    text-align: center;
+    margin: 5rem 0;
+    font-size: 1.3rem;
+    color: #cacaca;
+}
+
+footer p {
+    margin: 3rem 0;
+    font-size: 1.1rem;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #50d8a3;
+    word-break: break-all;
+}
+
+[data-bind="real-svg"] {
+    position:absolute;
+    top: -1000px;
+    left: -1000px;
+}
+
+.filter-samples span {
+    font-size: 0.9rem;
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    margin: 1.5rem 0.5rem 0;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 50px;
+    background: #50d8a3;
+    cursor: pointer;
+    
+    transition: background 0.15s linear;
+}
+
+.filter-samples span:hover {
+    background: #34b784;
+}
+
+
+.playground {
+    display: flex;
+    max-width: 795px;
+    height: 420px;
+    margin: 0 auto;
+    box-shadow: 0 16px 100px rgba(0,0,0,0.1);
+}
+
+.playground .pg-picture {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background: #fff;
+}
+
+.playground .pg-picture .svg-filter {
+    -webkit-filter: url(#filterSample);
+    -moz-filter: url(#filterSample);
+    -ms-filter: url(#filterSample);
+    filter: url(#filterSample);
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    transform: translate3d(-50%, -50%, 0);
+    object-fit: cover;
+    
+    opacity: 1;
+    transition: all 0.3s linear;
+}
+
+.playground .pg-picture .svg-filter[src=""] {
+    opacity: 0;
+}
+
+.playground .pg-picture-text {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.6rem;
+    text-align: center;
+    padding:20px 30px;
+    border-radius: 10px;
+    border: 1px dashed #50d8a3;
+    color: #50d8a3;
+    overflow: hidden;
+    
+    transition: all 0.3s linear;
+}
+
+.playground .pg-picture-text.only-hover {
+    opacity: 0;
+    z-index: 10;
+}
+
+.playground .pg-picture:hover .pg-picture-text.only-hover {
+    opacity: 1;
+}
+
+.playground .pg-picture-text:hover {
+    background: rgba(80, 216, 163, 0.17);
+}
+
+.playground .pg-picture-text input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    outline: none;
+    opacity: 0;
+}
+
+.playground .pg-svg {
+    flex: 1;
+    background: #eef7fb;
+    position:relative;
+}
+
+.playground .pg-svg .svg-controls {
+    background: #dbebf3;
+    padding: 1rem;
+    position: absolute;
+    bottom:0;
+    width: 100%;
+}
+
+.playground .pg-svg .svg-controls input {
+    width: 100%;
+}
+
+.playground .pg-svg pre {
+    padding: 2rem;
+    font-size: 1rem;
+    line-height: 1.7rem;
+}
+
+.playground .pg-svg pre b {
+    display: inline-block;
+    text-align: center;
+    font-weight: normal;
+    width: 30px;
+    height: 30px;
+    padding:2px 0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.8rem;
+    
+    animation: blink-b 1s linear;
+    animation-iteration-count: 3;
+    
+    transition: all 0.15s linear;
+}
+
+.playground .pg-svg pre b:hover {
+    background: rgba(255,255,0,0.8);
+}
+
+.playground .pg-svg pre b.selected {
+    background: rgba(255,255,0,0.8);
+    transform: scale(1.2);
+}
+
+@keyframes blink-b{
+    0% {
+        background: rgba(255,255,0,0);
+    }
+    
+    50% {
+        background: rgba(255,255,0,0.8);
+    }
+    
+    100% {
+        background: rgba(255,255,0,0);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        padding: 0 1rem;
+    }
+    .playground {
+        height: auto;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .playground > * {
+        min-height: 420px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	text-shadow: 0 1px white;
+	font-family: Monaco, Consolas, 'Andale Mono', monospace;
+	direction: ltr;
+	text-align: left;
+	/*white-space: pre;*/
+	word-spacing: normal;
+
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	overflow: visible;
+}
+
+pre[class*="language-"] code {
+	display: block;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: transparent;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0,0%,100%,.5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+
+.token.regex,
+.token.important {
+	color: #e90;
+}
+
+.token.important {
+	font-weight: bold;
+}
+
+.token.entity {
+	cursor: help;
+}
