@@ -1,7 +1,7 @@
 # svg-color-filter
 A simple project to help understand SVG's powerful feColorMatrix filter.
 
-<img src="readme-screen.jps" width="100%" />
+<img src="readme-screen.jpg" width="100%" />
 
 SVG Color Filter is a playground to help with SVG's `feColorMatrix` understanding in practice. Select between pre-baked sample filters, or change the values yourself and see the filter applied to the image in realtime.
 
