@@ -55,7 +55,7 @@
         </div>
         <div class="pg-svg" data-bind="svg-code">
             <div class="svg-controls">
-                <input type="range" data-bind="svg-input-range" min="-3000" max="3000" step="100" value="0" onchange="SVGFiddler.updateMatrix(this)">
+                <input type="range" data-bind="svg-input-range" min="-3000" max="3000" step="100" value="0" oninput="SVGFiddler.updateMatrix(this)">
             </div>
             <pre>
                 <code class=" language-markup">
